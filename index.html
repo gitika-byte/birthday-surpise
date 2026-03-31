@@ -6,13 +6,11 @@
 <title>Birthday Surprise 🎉</title>
 
 <style>
-
 body{
   margin:0;
   font-family: Georgia, "Times New Roman", Times, serif;
   text-align:center;
   overflow-x:hidden;
-
   background: linear-gradient(
     135deg,
     #cde7ff,
@@ -21,7 +19,6 @@ body{
     #fff3c4,
     #e6d9ff
   );
-
   background-size: 400% 400%;
   animation: pastelFlow 18s ease infinite;
 }
@@ -56,18 +53,14 @@ button{
 
 h1{
   font-size:54px;
-  letter-spacing:1px;
-}
-
-h2{
-  font-weight:normal;
 }
 
 #mainMessage{
-  font-size:22px;
-  max-width:700px;
+  font-size:20px;
+  max-width:750px;
   margin:10px auto 20px;
-  line-height:1.6;
+  line-height:1.7;
+  white-space:pre-line;
 }
 
 .countdown{
@@ -132,24 +125,17 @@ h2{
   background:white;
   border-radius:14px;
   max-width:620px;
-  margin-left:auto;
-  margin-right:auto;
+  margin:auto;
 }
-
-#surprise{
-  padding:30px;
-  backdrop-filter: blur(6px);
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- Start screen -->
+<!-- Step 1 -->
 <div id="start" class="screen">
-  <h2>You got a surprise gift 🎁</h2>
-  <button onclick="startQuestions()">Open</button>
+  <h2>You got a surprise 🎁</h2>
+  <button onclick="startQuestions()">Continue</button>
 </div>
 
 <!-- Questions -->
@@ -170,34 +156,37 @@ h2{
 <div id="surprise" class="hidden">
 
   <h1>🎉 Happy Birthday! 🎂</h1>
+
   <p id="mainMessage">
-    Write your birthday message here.
+Happy birthday, Babygirrrlllll! 🎉
+
+Yes, I know… this message is fashionably late. I’d like to say it’s because I was planning something extremely dramatic and meaningful, but honestly I just lost track of time like the responsible friend I am😍🙏🏻... Consider this a delayed delivery of love—same quality, slightly questionable timing😝💅🏻
+
+But seriously, I hope your birthday goes amazingggg!!! I’m really lucky to have a best friend who puts up with me, laughs at my terrible jokes (PJs with Gitika) and still sticks around😔🌷
+
+So here’s to you: more laughs, more ridiculous memories, and hopefully me wishing you on time next year (no promises though). Happy birthday again. You’re the best, muuuaaahhh💋✨
   </p>
 
-  <button onclick="toggleSecret()">Open Secret Message 🔒</button>
-
-  <div id="secretMessage" class="secret-box hidden">
-    Your secret message goes here 💌
+  <!-- Photos appear first -->
+  <div class="slideshow">
+    <div class="slide active"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-47285796.jpg"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-410150197.jpg"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-278978949.jpg"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-239795769.jpg"></div>
+    <div class="slide"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-208779856.jpg"></div>
   </div>
 
-  <!-- Slideshow -->
-  <div class="slideshow">
-    <div class="slide active"><img src="PHOTO_URL_1"></div>
-    <div class="slide"><img src="PHOTO_URL_2"></div>
-    <div class="slide"><img src="PHOTO_URL_3"></div>
-    <div class="slide"><img src="PHOTO_URL_4"></div>
-    <div class="slide"><img src="PHOTO_URL_5"></div>
+  <!-- Secret message appears after slideshow starts -->
+  <div id="secretArea" class="hidden">
+    <button onclick="toggleSecret()">Open Secret Message 🔒</button>
+    <div id="secretMessage" class="secret-box hidden">
+      Surprise! You're loved more than you know 💖
+    </div>
   </div>
 
 </div>
 
-<!-- Music -->
-<audio id="music" loop>
-  <source src="PASTE_MUSIC_URL_HERE">
-</audio>
-
 <script>
-
 let step = 0;
 
 const retryMessages = [
@@ -219,11 +208,9 @@ function showQuestion(){
   const text = document.getElementById("questionText");
 
   if(step === 0)
-    text.textContent = "Do you wanna open the surprise gift?";
+    text.textContent = "Do you wanna open it?";
   else if(step === 1)
-    text.textContent = "First, do you love Gitika?";
-  else if(step === 2)
-    text.textContent = "Aww, she loves you too! So, are you ready for your surprise?";
+    text.textContent = "Do you love Gitika?";
 }
 
 function yesAnswer(){
@@ -232,10 +219,6 @@ function yesAnswer(){
     showQuestion();
   }
   else if(step === 1){
-    step = 2;
-    showQuestion();
-  }
-  else if(step === 2){
     startCountdown();
   }
 }
@@ -243,16 +226,12 @@ function yesAnswer(){
 function noAnswer(){
   if(step === 0){
     document.getElementById("questionText").textContent =
-      "You need to press Yes to open the gift 🎁";
+      "Come on 😄 press Yes";
   }
   else if(step === 1){
     document.getElementById("questionText").textContent =
       retryMessages[retryIndex % retryMessages.length];
     retryIndex++;
-  }
-  else if(step === 2){
-    document.getElementById("questionText").textContent =
-      "Come on 😄 press Yes!";
   }
 }
 
@@ -277,15 +256,13 @@ function openSurprise(){
   document.getElementById("countdownScreen").classList.add("hidden");
   document.getElementById("surprise").classList.remove("hidden");
 
-  startMusic();
   launchConfetti();
   createBalloons();
   startSlideshow();
-}
 
-function startMusic(){
-  let music = document.getElementById("music");
-  music.play().catch(()=>{});
+  setTimeout(()=>{
+    document.getElementById("secretArea").classList.remove("hidden");
+  },4000);
 }
 
 function launchConfetti(){
@@ -330,7 +307,6 @@ function startSlideshow(){
     slides[slideIndex].classList.add("active");
   },3500);
 }
-
 </script>
 
 </body>
