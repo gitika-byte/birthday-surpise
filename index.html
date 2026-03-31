@@ -52,19 +52,14 @@ button{
 }
 
 h1{
-  font-size:54px;
+  font-size:48px;
   margin-top:20px;
 }
 
-#mainMessage{
-  font-size:24px;
-  margin-top:20px;
-}
-
-.longMessage{
+.message{
   font-size:20px;
-  max-width:750px;
-  margin:20px auto;
+  max-width:760px;
+  margin:30px auto;
   line-height:1.7;
   white-space:pre-line;
 }
@@ -105,7 +100,7 @@ h1{
 .slideshow{
   position:relative;
   max-width:720px;
-  margin:30px auto;
+  margin:40px auto;
 }
 
 .slide{
@@ -148,7 +143,7 @@ h1{
 
 <div id="surprise" class="hidden">
 
-  <!-- Photos first -->
+  <!-- Photos -->
   <div class="slideshow">
     <div class="slide active"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-47285796.jpg"></div>
     <div class="slide"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-410150197.jpg"></div>
@@ -157,15 +152,8 @@ h1{
     <div class="slide"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-208779856.jpg"></div>
   </div>
 
-  <!-- Main message -->
-  <h1 id="mainMessage">Happy birthday, Babygirrrlllll! 🎉</h1>
-
-  <!-- Secret message -->
-  <div id="secretArea" class="hidden">
-    <button onclick="toggleSecret()">Open Secret Message 🔒</button>
-
-    <div id="secretMessage" class="longMessage hidden">
-
+  <!-- Final message -->
+  <div class="message">
 Happy birthday, Babygirrrlllll! 🎉
 
 Yes, I know… this message is fashionably late. I’d like to say it’s because I was planning something extremely dramatic and meaningful, but honestly I just lost track of time like the responsible friend I am😍🙏🏻... Consider this a delayed delivery of love—same quality, slightly questionable timing😝💅🏻
@@ -173,8 +161,6 @@ Yes, I know… this message is fashionably late. I’d like to say it’s becaus
 But seriously, I hope your birthday goes amazingggg!!! I’m really lucky to have a best friend who puts up with me, laughs at my terrible jokes (PJs with Gitika) and still sticks around😔🌷
 
 So here’s to you: more laughs, more ridiculous memories, and hopefully me wishing you on time next year (no promises though). Happy birthday again. You’re the best, muuuaaahhh💋✨
-
-    </div>
   </div>
 
 </div>
@@ -252,10 +238,6 @@ function openSurprise(){
   launchConfetti();
   createBalloons();
   startSlideshow();
-
-  setTimeout(()=>{
-    document.getElementById("secretArea").classList.remove("hidden");
-  },4000);
 }
 
 function launchConfetti(){
@@ -284,11 +266,6 @@ function createBalloons(){
   }
 }
 
-function toggleSecret(){
-  document.getElementById("secretMessage")
-  .classList.toggle("hidden");
-}
-
 let slideIndex = 0;
 
 function startSlideshow(){
@@ -303,4 +280,4 @@ function startSlideshow(){
 </script>
 
 </body>
-</html>
+  </html>
