@@ -53,12 +53,18 @@ button{
 
 h1{
   font-size:54px;
+  margin-top:20px;
 }
 
 #mainMessage{
+  font-size:24px;
+  margin-top:20px;
+}
+
+.longMessage{
   font-size:20px;
   max-width:750px;
-  margin:10px auto 20px;
+  margin:20px auto;
   line-height:1.7;
   white-space:pre-line;
 }
@@ -118,27 +124,16 @@ h1{
   opacity:1;
   position:relative;
 }
-
-.secret-box{
-  margin-top:20px;
-  padding:22px;
-  background:white;
-  border-radius:14px;
-  max-width:620px;
-  margin:auto;
-}
 </style>
 </head>
 
 <body>
 
-<!-- Step 1 -->
 <div id="start" class="screen">
   <h2>You got a surprise 🎁</h2>
   <button onclick="startQuestions()">Continue</button>
 </div>
 
-<!-- Questions -->
 <div id="questions" class="screen hidden">
   <h2 id="questionText"></h2>
   <div>
@@ -147,27 +142,13 @@ h1{
   </div>
 </div>
 
-<!-- Countdown -->
 <div id="countdownScreen" class="screen hidden">
   <div id="countdown" class="countdown">3</div>
 </div>
 
-<!-- Surprise -->
 <div id="surprise" class="hidden">
 
-  <h1>🎉 Happy Birthday! 🎂</h1>
-
-  <p id="mainMessage">
-Happy birthday, Babygirrrlllll! 🎉
-
-Yes, I know… this message is fashionably late. I’d like to say it’s because I was planning something extremely dramatic and meaningful, but honestly I just lost track of time like the responsible friend I am😍🙏🏻... Consider this a delayed delivery of love—same quality, slightly questionable timing😝💅🏻
-
-But seriously, I hope your birthday goes amazingggg!!! I’m really lucky to have a best friend who puts up with me, laughs at my terrible jokes (PJs with Gitika) and still sticks around😔🌷
-
-So here’s to you: more laughs, more ridiculous memories, and hopefully me wishing you on time next year (no promises though). Happy birthday again. You’re the best, muuuaaahhh💋✨
-  </p>
-
-  <!-- Photos appear first -->
+  <!-- Photos first -->
   <div class="slideshow">
     <div class="slide active"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-47285796.jpg"></div>
     <div class="slide"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-410150197.jpg"></div>
@@ -176,11 +157,23 @@ So here’s to you: more laughs, more ridiculous memories, and hopefully me wish
     <div class="slide"><img src="https://raw.githubusercontent.com/gitika-byte/birthday-surpise/main/Snapchat-208779856.jpg"></div>
   </div>
 
-  <!-- Secret message appears after slideshow starts -->
+  <!-- Main message -->
+  <h1 id="mainMessage">Happy birthday, Babygirrrlllll! 🎉</h1>
+
+  <!-- Secret message -->
   <div id="secretArea" class="hidden">
     <button onclick="toggleSecret()">Open Secret Message 🔒</button>
-    <div id="secretMessage" class="secret-box hidden">
-      Surprise! You're loved more than you know 💖
+
+    <div id="secretMessage" class="longMessage hidden">
+
+Happy birthday, Babygirrrlllll! 🎉
+
+Yes, I know… this message is fashionably late. I’d like to say it’s because I was planning something extremely dramatic and meaningful, but honestly I just lost track of time like the responsible friend I am😍🙏🏻... Consider this a delayed delivery of love—same quality, slightly questionable timing😝💅🏻
+
+But seriously, I hope your birthday goes amazingggg!!! I’m really lucky to have a best friend who puts up with me, laughs at my terrible jokes (PJs with Gitika) and still sticks around😔🌷
+
+So here’s to you: more laughs, more ridiculous memories, and hopefully me wishing you on time next year (no promises though). Happy birthday again. You’re the best, muuuaaahhh💋✨
+
     </div>
   </div>
 
